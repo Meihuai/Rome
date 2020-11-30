@@ -30,9 +30,9 @@ public class ThreadPool {
     private ThreadPool(int coreNum) {
         if (mexecutor == null) {
             // TODO 用单例模式创建线程池
-            mexecutor = new ThreadPoolExecutor(coreNum == 0 ? 3 : coreNum, coreNum, 0L,
+            mexecutor = new ThreadPoolExecutor(coreNum == 0 ? 3 : coreNum, coreNum, 6000,
                     TimeUnit.MILLISECONDS,
-                    new LinkedBlockingDeque<Runnable>(),
+                    new LinkedBlockingDeque<Runnable>(10000),
                     Executors.defaultThreadFactory(),
                     new ThreadPoolExecutor.AbortPolicy());
         }

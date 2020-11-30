@@ -48,4 +48,13 @@ public class NodeServer {
     public void setState(boolean state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "NodeServer{" +
+                "ip='" + ip + '\'' +
+                ", port=" + port +
+                ", state=" + state +
+                '}';
+    }
 }
