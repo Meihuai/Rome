@@ -2,10 +2,9 @@ package com.example.registration.utils;
 
 
 
-import java.util.HashMap;
 import java.util.Map;
 
-import com.example.registration.domain.NodeServer;
+
 import com.example.registration.domain.Result;
 import com.example.registration.dto.NodeReqeust;
 import org.springframework.http.HttpEntity;
@@ -18,8 +17,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * RestTemplate 远程调用工具类
  * 
- * @author Logan
- * @createDate 2019-02-08
+ * @author meihua
  *
  */
 public class RestTemplateUtils {
