@@ -1,8 +1,13 @@
 package com.example.registration.controller;
 
+import com.example.registration.domain.Result;
+import com.example.registration.domain.RetCode;
 import com.example.registration.dto.NodeReqeust;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,12 +22,9 @@ import javax.servlet.http.HttpServletRequest;
 public class RegistrationController {
 
     @RequestMapping("/addServer")
-    public boolean addService(HttpServletRequest request, NodeReqeust reqeust){
-
-
-
-
-        return true;
+    @ResponseBody
+    public Result addService(@RequestBody NodeReqeust reqeust){
+        return new Result(RetCode.SUCCESS.code,true,"请求成功！");
     }
 
 

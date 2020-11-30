@@ -17,7 +17,11 @@ public class Result<T> {
    public Result() {
    }
 
-
+   public Result(int code, boolean flag, String msg) {
+      this.code = code;
+      this.flag = flag;
+      this.msg = msg;
+   }
    public Result(int code, boolean flag, String msg, T data) {
       this.code = code;
       this.flag = flag;
@@ -63,5 +67,15 @@ public class Result<T> {
 
    public void setFlag(boolean flag) {
       this.flag = flag;
+   }
+
+   @Override
+   public String toString() {
+      return "Result{" +
+              "code=" + code +
+              ", flag=" + flag +
+              ", msg='" + msg + '\'' +
+              ", data=" + data +
+              '}';
    }
 }

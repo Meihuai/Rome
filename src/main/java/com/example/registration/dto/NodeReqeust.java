@@ -10,7 +10,7 @@ public class NodeReqeust {
 
     private String appId;
     private String ip;
-    private String port;
+    private int port;
 
     public String getAppId() {
         return appId;
@@ -28,13 +28,11 @@ public class NodeReqeust {
         this.ip = ip;
     }
 
-    public String getPort() {
+    public int getPort() {
         return port;
     }
 
-    public void setPort(String port) {
+    public void setPort(int port) {
         this.port = port;
     }
-
-
 }

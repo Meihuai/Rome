@@ -18,7 +18,7 @@ public class NodeServer {
         this.state = state;
     }
 
-    public String getUrl(){
+    public String url(){
         return ip+":"+port;
     }
 

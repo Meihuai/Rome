@@ -1,5 +1,6 @@
 package com.example.registration.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.net.UnknownHostException;
 @Component
 public class ServerConfig  implements ApplicationListener<WebServerInitializedEvent> {
 
+    @Value("${server.port}")
     private int serverPort;
  
     public String getUrl() {
@@ -32,7 +34,10 @@ public class ServerConfig  implements ApplicationListener<WebServerInitializedEv
  
     @Override
     public void onApplicationEvent(WebServerInitializedEvent event) {
-        this.serverPort = event.getWebServer().getPort();
+        int port = event.getWebServer().getPort();
+           if (port!=0){
+               serverPort=port;
+           }
     }
  
 }

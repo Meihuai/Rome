@@ -34,7 +34,7 @@ public class RomeListener {
     private String serverAddress;
 
     @Value("${rome.service.count:1024}")
-    private static Integer serviceNum;
+    private  Integer serviceNum;
 
     /**
      * 本机ip与端口 默认不配置自动获取
@@ -47,7 +47,7 @@ public class RomeListener {
      **/
     public static List<NodeServer> servers;
 
-    public static   Map<String, MasterServer> serviceMap =new HashMap<>(serviceNum);
+    public static   Map<String, MasterServer> serviceMap =new HashMap<>(1024);
 
     /**
      *推送监听线程池
@@ -101,7 +101,7 @@ public class RomeListener {
         }
         //根据序号开始轮询投票机制
         for (int i=0;i<servers.size();i++){
-             if (servers.get(i).getUrl()==localServer.getUrl()){
+             if (servers.get(i).url()==localServer.url()){
                 //是自己开始准备接收
 
                  return true;
@@ -122,16 +122,16 @@ public class RomeListener {
     }
 
     public NodeServer toNodeServer(String url) throws RomeException {
-        if (url==null||url==""){
+        if (url==null||"".equals(url)){
             return null;
         }
         try {
-            URI uri = new URI(url);
+            URI uri = new URI("http://"+url);
             NodeServer nodeServer=new NodeServer(uri.getHost(),uri.getPort(),true);
             return nodeServer;
         } catch (Exception e) {
             logger.error("to ip error url :{}, Exception :{}",url, e);
-            throw new RomeException(" ip  error ！");
+            throw new RomeException(" ip  error ！"+url);
         }
     }
 
