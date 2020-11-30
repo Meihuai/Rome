@@ -1,6 +1,6 @@
 package com.example.registration.config;
 
-import com.example.registration.listener.ServiceListener;
+import com.example.registration.listener.RomeListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,10 +15,9 @@ public class ServiceConfig {
 
 
     @Bean(initMethod = "init", destroyMethod = "destroy")
-    public ServiceListener  ServiceListener(){
-        ServiceListener serviceListener=new ServiceListener();
-
-        return serviceListener;
+    public RomeListener ServiceListener(){
+        RomeListener romeListener=new RomeListener();
+        return romeListener;
     }
 
 }

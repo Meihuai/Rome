@@ -9,8 +9,21 @@ package com.example.registration.domain;
 public class NodeServer {
 
     private String ip;
-    private String port;
+    private int port;
     private boolean state;
+
+    public NodeServer(String ip, int port, boolean state) {
+        this.ip = ip;
+        this.port = port;
+        this.state = state;
+    }
+
+    public String getUrl(){
+        return ip+":"+port;
+    }
+
+    public NodeServer() {
+    }
 
     public String getIp() {
         return ip;
@@ -20,11 +33,11 @@ public class NodeServer {
         this.ip = ip;
     }
 
-    public String getPort() {
+    public int getPort() {
         return port;
     }
 
-    public void setPort(String port) {
+    public void setPort(int port) {
         this.port = port;
     }
 

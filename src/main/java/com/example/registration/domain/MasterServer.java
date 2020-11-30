@@ -11,8 +11,9 @@ import java.util.List;
  */
 public class MasterServer {
 
-    private String name;
+
     private String appId;
+    private String name;
     private List<Node> nodeList;
 
     public String getName() {
@@ -23,13 +24,15 @@ public class MasterServer {
         this.name = name;
     }
 
-    public String getAppId() { return appId; }
+    public List<Node> getNodeList() { return nodeList; }
+
+    public void setNodeList(List<Node> nodeList) { this.nodeList = nodeList; }
+
+    public String getAppId() {
+        return appId;
+    }
 
     public void setAppId(String appId) {
         this.appId = appId;
     }
-
-    public List<Node> getNodeList() { return nodeList; }
-
-    public void setNodeList(List<Node> nodeList) { this.nodeList = nodeList; }
 }
